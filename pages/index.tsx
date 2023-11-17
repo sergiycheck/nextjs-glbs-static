@@ -6,10 +6,12 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}>
-      <Link href="/glbs/22">22 glb</Link>
-      <Link href="/glbs/24">24 glb</Link>
-      <Link href="/glbs/28">28 glb</Link>
+    <main className={`flex f-full flex-col items-center justify-between ${inter.className}`}>
+      {Array.from({ length: 100 }, (_, i) => i + 1).map((i) => (
+        <Link key={i} href={`/nfts/${i}`}>
+          <span className="mt-4 text-center">{i} nft</span>
+        </Link>
+      ))}
     </main>
   );
 }
